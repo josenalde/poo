@@ -1,5 +1,3 @@
-package capitulo5.exercicios.exercicio3;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,3 +43,4 @@ public class Projeto {
     }
     
 }
+
