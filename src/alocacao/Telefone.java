@@ -1,5 +1,3 @@
-package capitulo5.exercicios.exercicio3;
-
 public class Telefone {
 
     private String ddd;
@@ -31,3 +29,4 @@ public class Telefone {
     }
 
 }
+
