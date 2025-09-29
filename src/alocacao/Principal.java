@@ -1,5 +1,3 @@
-package capitulo5.exercicios.exercicio3;
-
 public class Principal {
     public static void main(String[] args) {
         Projeto prj = new Projeto();
@@ -24,3 +22,4 @@ public class Principal {
        
     }
 }
+
