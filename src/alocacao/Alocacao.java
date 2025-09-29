@@ -1,5 +1,3 @@
-package capitulo5.exercicios.exercicio3;
-
 public class Alocacao {
 
     private Projeto projeto;
@@ -31,3 +29,4 @@ public class Alocacao {
     }
 
 }
+
