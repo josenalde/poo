@@ -5,22 +5,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ConnectDB {
-
-	private String url;
-	private String user;
-	private String password;
+	    private static String PGSQL_DB = "jdbc:postgresql://localhost/dbproducts"; //consider there is a dbproducts
+		private static String PGSQL_USERNAME = "postgres";
+		private static String PGSQL_PASSWORD = "postgresql";
+		/*
+		private static String PGSQL_DB = System.getenv("PGSQL_DB");
+		private static String PGSQL_USERNAME = System.getenv("PGSQL_USERNAME");
+		private static String PGSQL_PASSWORD = System.getenv("PGSQL_PASSWORD");
+		*/
 	
-	public ConnectDB(String url, String user, String password) {
-		super();
-		this.url = url;
-		this.user = user;
-		this.password = password;
+	public ConnectDB() {
+		
 	}
 
-
-
 	public void connect_and_list() {
-		try(Connection connection = DriverManager.getConnection(url, user, password);) {
+		try(Connection connection = DriverManager.getConnection(PGSQL_DB, PGSQL_USERNAME, PGSQL_PASSWORD);) {
 			if (connection != null) {
 				System.out.println("OK...connected to database...");
 				//list
@@ -33,6 +32,7 @@ public class ConnectDB {
 				//other sql commands INSERT/ADD
 				//String insertQuery = "INSERT INTO tbproducts (name,quantity,value) VALUES ('Celular samsung', 50, 1500.99)";
 				//sqlSt.executeUpdate(insertQuery);
+				
 				//DELETE	
 				//String deleteQuery = "DELETE FROM tbproducts WHERE nome LIKE 'Celular%'";
 			    //sqlSt.executeUpdate(deleteQuery);
@@ -43,6 +43,7 @@ public class ConnectDB {
 		}	
 	}	
 }
+
 
 
 
