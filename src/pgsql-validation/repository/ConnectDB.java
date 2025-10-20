@@ -1,5 +1,3 @@
-package persistencia;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -21,29 +19,30 @@ public class ConnectDB {
 
 
 
-	public void connect() {
+	public void connect_and_list() {
 		try(Connection connection = DriverManager.getConnection(url, user, password);) {
 			if (connection != null) {
-				System.out.println("Connected...");
-			} else System.out.println("Failed to connect...");
-			Statement sqlQuery = connection.createStatement();
-			ResultSet rset = sqlQuery.executeQuery("SELECT * from tbproducts");
-			
-			while (rset.next()) {
-				System.out.println(rset.getString("nome") + "," + rset.getInt("quantidade") + "," + rset.getDouble("valor"));
-			}
-			//inserindo item
-			//String query_1 = "INSERT INTO tbproducts (nome,quantidade,valor) VALUES ('Celular samsung', 50, 150.23)";
-			//sqlQuery.executeUpdate(query_1);
-			
-			//String query_2 = "DELETE FROM tbproducts WHERE nome LIKE 'Celular%'";
-			//sqlQuery.executeUpdate(query_2);
-			
+				System.out.println("OK...connected to database...");
+				//list
+				Statement sqlSt = connection.createStatement();
+				String query = "SELECT * from tbproducts";
+				ResultSet rset = sqlSt.executeQuery(query);
+				while (rset.next()) {
+					System.out.println(rset.getString("name") + "," + rset.getInt("quantity") + "," + rset.getDouble("value"));
+				}
+				//other sql commands INSERT/ADD
+				//String insertQuery = "INSERT INTO tbproducts (name,quantity,value) VALUES ('Celular samsung', 50, 1500.99)";
+				//sqlSt.executeUpdate(insertQuery);
+				//DELETE	
+				//String deleteQuery = "DELETE FROM tbproducts WHERE nome LIKE 'Celular%'";
+			    //sqlSt.executeUpdate(deleteQuery);
+			} else 
+				System.out.println("Failed to connect...");
 		} catch(SQLException e) {
 			e.printStackTrace();
-		}
-			
+		}	
 	}	
 }
+
 
 
