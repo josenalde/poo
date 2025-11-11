@@ -1,0 +1,1 @@
+insert into tbusers (userid, username, password) values (10, 'josenalde', '123');
